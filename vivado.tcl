@@ -73,6 +73,7 @@ set_param general.maxThreads $vivado_num_threads
 #########################################################################
 # assemble the design source files
 
+NahiUpdate
 # ip files
 #synthesize_ip "dram" [list clk_wiz_0 mig_7series_0]
 #synthesize_ip "." [list clk_wiz_1]
