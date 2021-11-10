@@ -37,6 +37,24 @@ proc synthesize_ip { ip_dir ip_list } {
     }
 }
 
+proc NahiUpdate { } {
+    foreach cell [get_bd_cells] {
+        set plist [list_property [get_bd_cells $cell]]
+        if {[lsearch $plist LOCK_UPGRADE] >= 0} {
+            set_property LOCK_UPGRADE 0 [get_bd_cells $cell]
+        }
+    }
+
+    update_ip_catalog -rebuild -repo_path [get_property  ip_repo_paths [current_project]]
+    report_ip_status 
+    foreach ip [get_ips] {
+        export_ip_user_files -of_objects [get_ips $ip] -no_script -sync -force -quiet
+        upgrade_ip  [get_ips $ip] -log ip_upgrade.log
+    }
+    report_ip_status
+    report_ip_status -name ip_status 
+}
+
 #########################################################################
 
 config_webtalk -user off
