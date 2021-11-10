@@ -1,0 +1,401 @@
+IPC Performance Result
+RVCoreP
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run bench/dhrystone3.mem
+Initialized.
+--------------------------------------------------
+
+== elapsed clock cycles              :          4867899
+== valid instructions executed       :          4526099
+== IPC                               :            0.929
+== branch prediction hit             :           991316
+== branch prediction miss            :            90543
+== branch prediction total           :          1081859
+== branch prediction hit rate        :            0.916
+== the num of load-use stall         :            90177
+== estimated clock cycles            :          4887905
+== r_cnt                             :         004a473b
+== r_rout                            :         0000124c
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run bench/coremark3.mem
+Initialized.
+--------------------------------------------------
+
+== elapsed clock cycles              :          8900524
+== valid instructions executed       :          7346906
+== IPC                               :            0.825
+== branch prediction hit             :          1815961
+== branch prediction miss            :           461046
+== branch prediction total           :          2277007
+== branch prediction hit rate        :            0.797
+== the num of load-use stall         :           172136
+== estimated clock cycles            :          8902180
+== r_cnt                             :         0087cfac
+== r_rout                            :         00002fe0
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/aha-mont64.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        882715196
+== valid instructions executed       :        791608141
+== IPC                               :            0.896
+== branch prediction hit             :         98184409
+== branch prediction miss            :         30337412
+== branch prediction total           :        128521821
+== branch prediction hit rate        :            0.763
+== the num of load-use stall         :            94818
+== estimated clock cycles            :        882715195
+== r_cnt                             :         349d2a3c
+== r_rout                            :         00000f94
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/crc32.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        564683693
+== valid instructions executed       :        505200493
+== IPC                               :            0.894
+== branch prediction hit             :         29741557
+== branch prediction miss            :         14878054
+== branch prediction total           :         44619611
+== branch prediction hit rate        :            0.666
+== the num of load-use stall         :         14849037
+== estimated clock cycles            :        564683692
+== r_cnt                             :         21a863ad
+== r_rout                            :         0000036c
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/cubic.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :       1515616866
+== valid instructions executed       :       1290236614
+== IPC                               :            0.851
+== branch prediction hit             :        316670922
+== branch prediction miss            :         74144283
+== branch prediction total           :        390815205
+== branch prediction hit rate        :            0.810
+== the num of load-use stall         :          3071158
+== estimated clock cycles            :       1515740621
+== r_cnt                             :         5a567a62
+== r_rout                            :         000012c0
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/edn.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :       7129773657
+== valid instructions executed       :       6510450723
+== IPC                               :            0.913
+== branch prediction hit             :       2071938942
+== branch prediction miss            :        206363896
+== branch prediction total           :       2278302838
+== branch prediction hit rate        :            0.909
+== the num of load-use stall         :           231246
+== estimated clock cycles            :       7129773657
+== r_cnt                             :         a8f7b659
+== r_rout                            :         00000e84
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/huffbench.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        303423082
+== valid instructions executed       :        269434618
+== IPC                               :            0.887
+== branch prediction hit             :         48461032
+== branch prediction miss            :          9456281
+== branch prediction total           :         57917313
+== branch prediction hit rate        :            0.836
+== the num of load-use stall         :          5635233
+== estimated clock cycles            :        303438694
+== r_cnt                             :         1215de6a
+== r_rout                            :         00000c78
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/matmult-int.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :       3830898450
+== valid instructions executed       :       2906980675
+== IPC                               :            0.758
+== branch prediction hit             :        701126097
+== branch prediction miss            :        307657485
+== branch prediction total           :       1008783582
+== branch prediction hit rate        :            0.695
+== the num of load-use stall         :           945320
+== estimated clock cycles            :       3830898450
+== r_cnt                             :         e456df12
+== r_rout                            :         0000064c
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/minver.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        922384179
+== valid instructions executed       :        775512148
+== IPC                               :            0.840
+== branch prediction hit             :        199906414
+== branch prediction miss            :         48365119
+== branch prediction total           :        248271533
+== branch prediction hit rate        :            0.805
+== the num of load-use stall         :          1776673
+== estimated clock cycles            :        922384178
+== r_cnt                             :         36fa7733
+== r_rout                            :         00000b84
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/nbody.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :       1573454587
+== valid instructions executed       :       1319688775
+== IPC                               :            0.838
+== branch prediction hit             :        332896712
+== branch prediction miss            :         84250886
+== branch prediction total           :        417147598
+== branch prediction hit rate        :            0.798
+== the num of load-use stall         :          1164655
+== estimated clock cycles            :       1573606088
+== r_cnt                             :         5dc902fb
+== r_rout                            :         000008dc
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/nettle-aes.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        409319921
+== valid instructions executed       :        403860341
+== IPC                               :            0.986
+== branch prediction hit             :         16812858
+== branch prediction miss            :          1696636
+== branch prediction total           :         18509494
+== branch prediction hit rate        :            0.908
+== the num of load-use stall         :           369671
+== estimated clock cycles            :        409319920
+== r_cnt                             :         1865b9f1
+== r_rout                            :         00001384
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/nettle-sha256.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        344962497
+== valid instructions executed       :        339324686
+== IPC                               :            0.983
+== branch prediction hit             :          4843479
+== branch prediction miss            :          1032311
+== branch prediction total           :          5875790
+== branch prediction hit rate        :            0.824
+== the num of load-use stall         :          2540878
+== estimated clock cycles            :        344962497
+== r_cnt                             :         148fb5c1
+== r_rout                            :         00001d8c
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/nsichneu.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        456129528
+== valid instructions executed       :        239119297
+== IPC                               :            0.524
+== branch prediction hit             :         64747694
+== branch prediction miss            :         42770378
+== branch prediction total           :        107518072
+== branch prediction hit rate        :            0.602
+== the num of load-use stall         :        104754420
+== estimated clock cycles            :        472184851
+== r_cnt                             :         1b2ffbf8
+== r_rout                            :         00004f94
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/picojpeg.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        376641540
+== valid instructions executed       :        361554233
+== IPC                               :            0.959
+== branch prediction hit             :         36268165
+== branch prediction miss            :          4347050
+== branch prediction total           :         40615215
+== branch prediction hit rate        :            0.892
+== the num of load-use stall         :          2096249
+== estimated clock cycles            :        376691632
+== r_cnt                             :         16731804
+== r_rout                            :         00003ee4
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/qrduino.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        731697475
+== valid instructions executed       :        633278190
+== IPC                               :            0.865
+== branch prediction hit             :        120508723
+== branch prediction miss            :         31053317
+== branch prediction total           :        151562040
+== branch prediction hit rate        :            0.795
+== the num of load-use stall         :          5938425
+== estimated clock cycles            :        732376566
+== r_cnt                             :         2b9cd143
+== r_rout                            :         00003128
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/sglib-combined.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        367530471
+== valid instructions executed       :        303853684
+== IPC                               :            0.826
+== branch prediction hit             :         68905584
+== branch prediction miss            :         15322005
+== branch prediction total           :         84227589
+== branch prediction hit rate        :            0.818
+== the num of load-use stall         :         19800437
+== estimated clock cycles            :        369620136
+== r_cnt                             :         15e811e7
+== r_rout                            :         000029ec
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/slre.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        359872564
+== valid instructions executed       :        324236829
+== IPC                               :            0.900
+== branch prediction hit             :         76378535
+== branch prediction miss            :          8358767
+== branch prediction total           :         84737302
+== branch prediction hit rate        :            0.901
+== the num of load-use stall         :         11777844
+== estimated clock cycles            :        361090974
+== r_cnt                             :         15733834
+== r_rout                            :         00001250
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/st.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :       1644426164
+== valid instructions executed       :       1377862426
+== IPC                               :            0.837
+== branch prediction hit             :        355515732
+== branch prediction miss            :         88326093
+== branch prediction total           :        443841825
+== branch prediction hit rate        :            0.800
+== the num of load-use stall         :          1585459
+== estimated clock cycles            :       1644426164
+== r_cnt                             :         6203f3b4
+== r_rout                            :         00000b4c
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/statemate.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        374617895
+== valid instructions executed       :        344345561
+== IPC                               :            0.919
+== branch prediction hit             :         23082568
+== branch prediction miss            :          6811293
+== branch prediction total           :         29893861
+== branch prediction hit rate        :            0.772
+== the num of load-use stall         :         10973659
+== estimated clock cycles            :        375753099
+== r_cnt                             :         16543727
+== r_rout                            :         00001b7c
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/ud.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        534880574
+== valid instructions executed       :        478526901
+== IPC                               :            0.894
+== branch prediction hit             :        115991887
+== branch prediction miss            :         18549743
+== branch prediction total           :        134541630
+== branch prediction hit rate        :            0.862
+== the num of load-use stall         :           704443
+== estimated clock cycles            :        534880573
+== r_cnt                             :         1fe1a13e
+== r_rout                            :         000007f8
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
+make[1]: Entering directory '/home/share/FPGA/riscv/pipeline/v091_release'
+./simv
+Run embench/wikisort.mem
+Initialized.
+--------------------------------------------------
+correct!
+== elapsed clock cycles              :        747130782
+== valid instructions executed       :        614634711
+== IPC                               :            0.822
+== branch prediction hit             :        151645931
+== branch prediction miss            :         42915064
+== branch prediction total           :        194560995
+== branch prediction hit rate        :            0.779
+== the num of load-use stall         :          3751279
+== estimated clock cycles            :        747131182
+== r_cnt                             :         2c884f9e
+== r_rout                            :         00001fc0
+- top.v:150: Verilog $finish
+make[1]: Leaving directory '/home/share/FPGA/riscv/pipeline/v091_release'
