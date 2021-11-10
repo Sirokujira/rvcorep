@@ -73,7 +73,7 @@ set_param general.maxThreads $vivado_num_threads
 #########################################################################
 # assemble the design source files
 
-NahiUpdate
+#NahiUpdate
 # ip files
 #synthesize_ip "dram" [list clk_wiz_0 mig_7series_0]
 #synthesize_ip "." [list clk_wiz_1]
@@ -114,6 +114,8 @@ set top_module main
 #read_xdc constraints_io.xdc
 read_xdc constrs/ultra96v2.xdc
 
+NahiUpdate
+
 #########################################################################
 # run synthesis and implementation
 
@@ -132,7 +134,10 @@ puts "Synthesis time = [expr $synth_time / 60]:[format %02d [expr $synth_time % 
 set impl_start_time [clock clicks -milliseconds]
 
 # additional constraint files (for implementation)
-read_xdc constraints_timing.xdc
+#read_xdc constraints_timing.xdc
+# used in implementation
+# create_generated_clock -name user_design_clk [get_pins dmem/dram/clkgen/inst/mmcm_adv_inst/CLKOUT0]
+# set_clock_groups -asynchronous -group {user_design_clk}
 
 # implementation
 opt_design -directive Explore
