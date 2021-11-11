@@ -157,8 +157,8 @@ report_drc -file "${out_dir}/${top_module}_drc_routed.rpt"
 
 # display timing report summary
 # "user_design_clk" is defined in "constraints_timing.xdc"
-# set user_design_clk_period_ns [get_property PERIOD [get_clocks user_design_clk]]
-# puts "User design clock: [show_period_freq $user_design_clk_period_ns]"
+set user_design_clk_period_ns [get_property PERIOD [get_clocks user_design_clk]]
+puts "User design clock: [show_period_freq $user_design_clk_period_ns]"
 set wns [get_property SLACK [get_timing_paths]]
 set timing_met [expr {$wns >= 0}]
 if {$timing_met} {
