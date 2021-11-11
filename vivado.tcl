@@ -62,7 +62,14 @@ set_param general.maxThreads $vivado_num_threads
 create_bd_design main
 set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
 #apply_bd_automation -rule xilinx.com:bd_rule:zynq_ultra_ps_e -config {apply_board_preset "1" } [get_bd_cells zynq_ultra_ps_e_0]
-set zynq_ultra_ps_e_0 [get_bd_cells zynq_ultra_ps_e_0]
+set zynq_ultra_ps_e_0 [get_bd_cells zynq_ultra_ps_e_0
+#set locked [get_property IS_LOCKED [get_ips ${i}]]
+#set upgrade [get_property UPGRADE_VERSIONS [get_ips ${i}]]
+#if {$locked && $upgrade != ""} {
+#upgrade_ip [get_ips ${i}]
+# }
+generate_target all [get_ips clk_wiz_0]
+synth_ip [get_ips clk_wiz_0]
 
 # verilog files
 read_verilog {
