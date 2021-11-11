@@ -37,24 +37,6 @@ proc synthesize_ip { ip_dir ip_list } {
     }
 }
 
-proc NahiUpdate { } {
-    foreach cell [get_bd_cells] {
-        set plist [list_property [get_bd_cells $cell]]
-        if {[lsearch $plist LOCK_UPGRADE] >= 0} {
-            set_property LOCK_UPGRADE 0 [get_bd_cells $cell]
-        }
-    }
-
-    update_ip_catalog -rebuild -repo_path [get_property  ip_repo_paths [current_project]]
-    report_ip_status 
-    foreach ip [get_ips] {
-        export_ip_user_files -of_objects [get_ips $ip] -no_script -sync -force -quiet
-        upgrade_ip  [get_ips $ip] -log ip_upgrade.log
-    }
-    report_ip_status
-    report_ip_status -name ip_status 
-}
-
 #########################################################################
 
 config_webtalk -user off
@@ -76,7 +58,8 @@ set_param general.maxThreads $vivado_num_threads
 # ip files
 #synthesize_ip "dram" [list clk_wiz_0 mig_7series_0]
 #synthesize_ip "." [list clk_wiz_1]
-synthesize_ip "main.srcs/sources_1/ip" [list clk_wiz_0]
+#synthesize_ip "main.srcs/sources_1/ip" [list clk_wiz_0]
+set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
 
 # verilog files
 read_verilog {
@@ -113,8 +96,6 @@ set top_module main
 #read_xdc constraints_io.xdc
 read_xdc constrs/ultra96v2.xdc
 
-#NahiUpdate
-
 #########################################################################
 # run synthesis and implementation
 
@@ -136,7 +117,9 @@ set impl_start_time [clock clicks -milliseconds]
 #read_xdc constraints_timing.xdc
 # used in implementation
 #create_generated_clock -name user_design_clk [get_pins CLK]
-#set_clock_groups -asynchronous -group {user_design_clk}
+create_generated_clock -name user_design_clk [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+set_clock_groups -asynchronous -group {user_design_clk}
+
 
 # implementation
 opt_design -directive Explore
@@ -156,16 +139,16 @@ report_drc -file "${out_dir}/${top_module}_drc_routed.rpt"
 
 # display timing report summary
 # "user_design_clk" is defined in "constraints_timing.xdc"
-#set user_design_clk_period_ns [get_property PERIOD [get_clocks user_design_clk]]
-#puts "User design clock: [show_period_freq $user_design_clk_period_ns]"
-#set wns [get_property SLACK [get_timing_paths]]
-#set timing_met [expr {$wns >= 0}]
-#if {$timing_met} {
-#    puts "Timing constraints: met (worst negative slack = $wns)"
-#} else {
-#    puts "Timing constraints: violated (worst negative slack = $wns)"
-#}
-#
+set user_design_clk_period_ns [get_property PERIOD [get_clocks user_design_clk]]
+puts "User design clock: [show_period_freq $user_design_clk_period_ns]"
+set wns [get_property SLACK [get_timing_paths]]
+set timing_met [expr {$wns >= 0}]
+if {$timing_met} {
+    puts "Timing constraints: met (worst negative slack = $wns)"
+} else {
+    puts "Timing constraints: violated (worst negative slack = $wns)"
+}
+
 set impl_finish_time [clock clicks -milliseconds]
 set impl_time [expr ($impl_finish_time - $impl_start_time) / 1000]
 puts "Implementation time = [expr $impl_time / 60]:[format %02d [expr $impl_time % 60]]"
