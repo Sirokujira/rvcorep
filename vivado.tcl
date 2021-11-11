@@ -135,9 +135,8 @@ set impl_start_time [clock clicks -milliseconds]
 # additional constraint files (for implementation)
 #read_xdc constraints_timing.xdc
 # used in implementation
-create_generated_clock -name user_design_clk [get_pins CLK]
-set_clock_groups -asynchronous -group {user_design_clk}
-#NahiUpdate
+#create_generated_clock -name user_design_clk [get_pins CLK]
+#set_clock_groups -asynchronous -group {user_design_clk}
 
 # implementation
 opt_design -directive Explore
@@ -157,16 +156,16 @@ report_drc -file "${out_dir}/${top_module}_drc_routed.rpt"
 
 # display timing report summary
 # "user_design_clk" is defined in "constraints_timing.xdc"
-set user_design_clk_period_ns [get_property PERIOD [get_clocks user_design_clk]]
-puts "User design clock: [show_period_freq $user_design_clk_period_ns]"
-set wns [get_property SLACK [get_timing_paths]]
-set timing_met [expr {$wns >= 0}]
-if {$timing_met} {
-    puts "Timing constraints: met (worst negative slack = $wns)"
-} else {
-    puts "Timing constraints: violated (worst negative slack = $wns)"
-}
-
+#set user_design_clk_period_ns [get_property PERIOD [get_clocks user_design_clk]]
+#puts "User design clock: [show_period_freq $user_design_clk_period_ns]"
+#set wns [get_property SLACK [get_timing_paths]]
+#set timing_met [expr {$wns >= 0}]
+#if {$timing_met} {
+#    puts "Timing constraints: met (worst negative slack = $wns)"
+#} else {
+#    puts "Timing constraints: violated (worst negative slack = $wns)"
+#}
+#
 set impl_finish_time [clock clicks -milliseconds]
 set impl_time [expr ($impl_finish_time - $impl_start_time) / 1000]
 puts "Implementation time = [expr $impl_time / 60]:[format %02d [expr $impl_time % 60]]"
