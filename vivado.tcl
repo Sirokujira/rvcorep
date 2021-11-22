@@ -58,11 +58,24 @@ set_param general.maxThreads $vivado_num_threads
 # ip files
 #synthesize_ip "dram" [list clk_wiz_0 mig_7series_0]
 #synthesize_ip "." [list clk_wiz_1]
-#synthesize_ip "main.srcs/sources_1/ip" [list clk_wiz_0]
-create_bd_design main
-set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
-#apply_bd_automation -rule xilinx.com:bd_rule:zynq_ultra_ps_e -config {apply_board_preset "1" } [get_bd_cells zynq_ultra_ps_e_0]
-set zynq_ultra_ps_e_0 [get_bd_cells zynq_ultra_ps_e_0
+synthesize_ip "main.srcs/sources_1/ip" [list clk_wiz_0]
+#create_bd_design main
+#set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
+
+# add selection for customization depending on board choice (or none)
+create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.2 zynq_ultra_ps_e_0
+apply_bd_automation -rule xilinx.com:bd_rule:zynq_ultra_ps_e -config {apply_board_preset "1" } [get_bd_cells zynq_ultra_ps_e_0]
+set zynq_ultra_ps_e_0 [get_bd_cells zynq_ultra_ps_e_0]
+
+# MIO25 is used as GPIO for USB Vbus detect.  Change to pullup instead of default pulldown
+set_property -dict [list CONFIG.PSU_MIO_25_PULLUPDOWN {pullup}] [get_bd_cells zynq_ultra_ps_e_0]
+# Add the modem flow control pins to PSU UART0 (Bluetooth UART)
+set_property -dict [list CONFIG.PSU__UART0__MODEM__ENABLE {1}] [get_bd_cells zynq_ultra_ps_e_0]
+
+# connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk]
+#connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+#
+
 #set locked [get_property IS_LOCKED [get_ips ${i}]]
 #set upgrade [get_property UPGRADE_VERSIONS [get_ips ${i}]]
 #if {$locked && $upgrade != ""} {
