@@ -7,14 +7,14 @@ create_clock -add -name sys_clk -period 10.00 [get_ports {CLK}];
 create_pblock PB0
 resize_pblock        [get_pblocks PB0] -add {CLOCKREGION_X0Y0}
 #resize_pblock        [get_pblocks PB0] -add {CLOCKREGION_X0Y0} -add {CLOCKREGION_X1Y0}
-add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {p}]]
-add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {v}]]
-add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {imem}]]
-add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {dmem}]]
+#add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {p}]]
+#add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {v}]]
+#add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {imem}]]
+#add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {dmem}]]
 
-add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {m_7segcon}]]
-add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {ploader}]]
-add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {UartTx0}]]
+#add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {m_7segcon}]]
+#add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {ploader}]]
+#add_cells_to_pblock [get_pblocks PB0] [get_cells -quiet [list {UartTx0}]]
 ###############################################################################################
 
 #set_property -dict { PACKAGE_PIN H17 IOSTANDARD LVCMOS33} [get_ports { r_led[0] }];
