@@ -58,9 +58,9 @@ set_param general.maxThreads $vivado_num_threads
 # ip files
 #synthesize_ip "dram" [list clk_wiz_0 mig_7series_0]
 #synthesize_ip "." [list clk_wiz_1]
-#synthesize_ip "main.srcs/sources_1/ip" [list clk_wiz_0]
+synthesize_ip "main.srcs/sources_1/ip" [list clk_wiz_0]
 create_bd_design main
-set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
+#set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
 
 # add selection for customization depending on board choice (or none)
 create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.3 zynq_ultra_ps_e_0
