@@ -68,7 +68,7 @@ apply_bd_automation -rule xilinx.com:bd_rule:zynq_ultra_ps_e -config {apply_boar
 set zynq_ultra_ps_e_0 [get_bd_cells zynq_ultra_ps_e_0]
 
 # MIO25 is used as GPIO for USB Vbus detect.  Change to pullup instead of default pulldown
-set_property -dict [list CONFIG.PSU_MIO_25_PULLUPDOWN {pullup}] [get_bd_cells zynq_ultra_ps_e_0]
+#set_property -dict [list CONFIG.PSU_MIO_25_PULLUPDOWN {pullup}] [get_bd_cells zynq_ultra_ps_e_0]
 # Add the modem flow control pins to PSU UART0 (Bluetooth UART)
 set_property -dict [list CONFIG.PSU__UART0__MODEM__ENABLE {1}] [get_bd_cells zynq_ultra_ps_e_0]
 

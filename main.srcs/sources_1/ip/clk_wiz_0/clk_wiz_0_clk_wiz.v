@@ -56,7 +56,7 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk_out1__160.00000______0.000______50.0______119.657_____98.575
+// clk_out1__160.00000______0.000______50.0______106.311_____87.180
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -79,7 +79,7 @@ module clk_wiz_0_clk_wiz
   //------------------------------------
 wire clk_in1_clk_wiz_0;
 wire clk_in2_clk_wiz_0;
-  IBUF clkin1_ibufg
+  IBUF clkin1_ibuf
    (.O (clk_in1_clk_wiz_0),
     .I (clk_in1));
 
@@ -122,21 +122,25 @@ wire clk_in2_clk_wiz_0;
   wire        clkinstopped_unused;
   wire        reset_high;
 
-  MMCME2_ADV
+
+  
+    MMCME4_ADV
+
   #(.BANDWIDTH            ("OPTIMIZED"),
     .CLKOUT4_CASCADE      ("FALSE"),
-    .COMPENSATION         ("ZHOLD"),
+    .COMPENSATION         ("AUTO"),
     .STARTUP_WAIT         ("FALSE"),
     .DIVCLK_DIVIDE        (1),
-    .CLKFBOUT_MULT_F      (10.000),
+    .CLKFBOUT_MULT_F      (12.000),
     .CLKFBOUT_PHASE       (0.000),
     .CLKFBOUT_USE_FINE_PS ("FALSE"),
-    .CLKOUT0_DIVIDE_F     (6.250),
+    .CLKOUT0_DIVIDE_F     (7.500),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT0_USE_FINE_PS  ("FALSE"),
     .CLKIN1_PERIOD        (10.000))
-  mmcm_adv_inst
+  
+  mmcme4_adv_inst
     // Output clocks
    (
     .CLKFBOUT            (clkfbout_clk_wiz_0),
@@ -166,6 +170,8 @@ wire clk_in2_clk_wiz_0;
     .DO                  (do_unused),
     .DRDY                (drdy_unused),
     .DWE                 (1'b0),
+    .CDDCDONE            (),
+    .CDDCREQ             (1'b0),
     // Ports for dynamic phase shift
     .PSCLK               (1'b0),
     .PSEN                (1'b0),
